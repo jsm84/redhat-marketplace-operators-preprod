@@ -2,21 +2,20 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   creationTimestamp: null
-  name: stealserver-operators.priebus.steamngin.com
+  name: stealservers.priebus.steamngin.com
 spec:
   group: priebus.steamngin.com
   names:
-    kind: Stealserver-operator
-    listKind: Stealserver-operatorList
-    plural: stealserver-operators
-    singular: stealserver-operator
+    kind: Stealserver
+    listKind: StealserverList
+    plural: stealservers
+    singular: stealserver
   scope: Namespaced
   versions:
   - name: v1
     schema:
       openAPIV3Schema:
-        description: Stealserver-operator is the Schema for the stealserver-operators
-          API
+        description: Stealserver is the Schema for the stealservers API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -31,18 +30,11 @@ spec:
           metadata:
             type: object
           spec:
-            description: Spec defines the desired state of Stealserver-operator
-            properties:
-              stealServerHostPort:
-                type: integer
-              stepImage:
-                type: string
-              stepImagePullSecret:
-                type: string
+            description: Spec defines the desired state of Stealserver
             type: object
             x-kubernetes-preserve-unknown-fields: true
           status:
-            description: Status defines the observed state of Stealserver-operator
+            description: Status defines the observed state of Stealserver
             type: object
             x-kubernetes-preserve-unknown-fields: true
         type: object
